@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors'); // Import CORS
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; // Set port
 
 // Enable CORS for all routes
 app.use(cors());
@@ -15,12 +15,15 @@ const data = [
 
 // Route to return the array of objects
 app.get('/api/data', (req, res) => {
-  res.json(data);
+  res.json(data); // Return JSON data
 });
-app.get('/', (req, res) => {
-    res.json(data);
-  });
 
+// Optional: Directly serve data at the root URL
+app.get('/', (req, res) => {
+  res.json(data); // Return JSON data at root
+});
+
+// Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
